@@ -1,4 +1,5 @@
 <!-- Generated template for the ComicListComponent component -->
 <div>
-  {{text}}
+  <comic-list-item *ngFor="let comic of comics" [comic]="comic">
+  </comic-list-item>
 </div>

@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { ComponentsModule } from '../components/components.module'
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { HttpModule } from '@angular/http';
 import {
   MarvelAPI, MARVEL_API_CONFIG, MarvelAPIConfig
 } from '../providers/comic/comic';
@@ -24,6 +25,7 @@ const APP_MARVEL_API_CONFIG: MarvelAPIConfig = {
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     ComponentsModule,
   ],

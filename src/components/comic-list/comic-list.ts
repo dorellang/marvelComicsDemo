@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  MarvelAPI
+  MarvelAPI, ComicDataWrapper, Comic
 } from '../../providers/comic/comic';
 
 /**
@@ -16,10 +16,24 @@ import {
 export class ComicListComponent {
 
   text: string;
+  attributionText: string;
+  comics: Comic[];
+
+  ngOnInit() {
+    this.marvelAPI.getComics().subscribe(
+      (comicDataWrapper) => this.onComicData(comicDataWrapper)
+    );
+  }
+
+  onComicData(comicDataWrapper : ComicDataWrapper){
+    this.attributionText = comicDataWrapper.attributionText;
+    this.comics = comicDataWrapper.data.results;
+  }
+
+  getNextPage(){
+  }
 
   constructor(public marvelAPI: MarvelAPI) {
-    console.log('Hello ComicListComponent Component');
-    this.text = 'Hello World';
   }
 
 }
